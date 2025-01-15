@@ -1,0 +1,11 @@
+services:
+  streamlit:
+    image: <your_dockerhub_username>/app
+    ports:
+      - "8501:8501"
+    volumes:
+      - streamlit_db:/data
+    restart: unless-stopped
+volumes:
+  streamlit_db:
+    external: false #set to true to force looking for a previously build volume
